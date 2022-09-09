@@ -4,6 +4,10 @@ plugins {
     id 'java'
 }
 
+ext {
+    set('springCloudVersion', "2021.0.4")
+}
+
 group = 'ru.eshift'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
@@ -15,8 +19,16 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
 
 tasks.named('test') {
     useJUnitPlatform()
