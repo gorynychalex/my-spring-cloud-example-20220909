@@ -4,4 +4,4 @@ includeBuild("microservice-quiz")
 includeBuild("microservice-statistic")
 includeBuild("microservice-user")
 includeBuild("service-discovery-eureka")
-
+includeBuild("api-gateway")
